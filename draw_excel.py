@@ -56,8 +56,11 @@ def draw_jpg(img_path):
                 _w = cell.column
                 _h = cell.col_idx
                 # 调整列宽
+                # openpyxl > 2.6.1
+                # _w_letter = openpyxl.utils.get_column_letter(_w)
+                # worksheet.column_dimensions[_w_letter].width = 1
+                # openpyxl < 2.5.12
                 worksheet.column_dimensions[_w].width = 1
-
             # 调整行高
             worksheet.row_dimensions[h].height = 6
             # back = random.choice(['112233','223344','334455','556677','667788','778899','ababcb'])
@@ -70,6 +73,7 @@ def draw_jpg(img_path):
     print('saving...')
     workbook.save(out_file)
     print('success!')
+    print('The file is saved in :',os.path.abspath('test.xlsx'))
 
 
 if __name__ == '__main__':

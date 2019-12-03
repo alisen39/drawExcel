@@ -48,6 +48,7 @@ def draw_color():
     print('saving...')
     workbook.save('test.xlsx')
     print('success!')
+    print('The file is saved in :',os.path.abspath('test.xlsx'))
 
 
 def draw_cell():
